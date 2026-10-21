@@ -1,0 +1,66 @@
+<div class="page">
+  <h1 class="title">Perfil</h1>
+
+  <section class="card profile-head">
+    <img [src]="avatar" [alt]="name" class="avatar" />
+    <div>
+      <h2>{{ name }}</h2>
+      <p class="since">{{ memberSince }}</p>
+    </div>
+  </section>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <p class="s-label">Entrenamientos</p>
+      <p class="s-val">{{ workouts }}</p>
+    </div>
+    <div class="stat-box">
+      <p class="s-label">Racha días</p>
+      <p class="s-val">{{ streak }}</p>
+    </div>
+    <div class="stat-box">
+      <p class="s-label">Perdido (kg)</p>
+      <p class="s-val">{{ lostKg }}</p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <section class="card">
+      <p class="sec">MI PLAN</p>
+      <button type="button" class="row">
+        <span>Objetivo primordial</span>
+        <span class="row-val">Ganar Músculo ›</span>
+      </button>
+      <button type="button" class="row">
+        <span>Nivel de actividad</span>
+        <span class="row-val">Moderada (3-4 días) ›</span>
+      </button>
+    </section>
+
+    <section class="card account-card">
+      <p class="sec">CUENTA</p>
+      <button type="button" class="row">
+        <span>Editar perfil</span>
+        <span class="row-val">›</span>
+      </button>
+      <button type="button" class="row">
+        <span>Cambiar contraseña</span>
+        <span class="row-val">›</span>
+      </button>
+      <button type="button" class="logout" (click)="logout()">Cerrar sesión</button>
+    </section>
+  </div>
+
+  <section class="card prefs">
+    <p class="sec">PREFERENCIAS</p>
+    <button type="button" class="row">
+      <span>Notificaciones</span>
+      <span class="row-val">Activadas ›</span>
+    </button>
+    <button type="button" class="row">
+      <span>Unidades de medida</span>
+      <span class="row-val">Métrico (kg/cm) ›</span>
+    </button>
+  </section>
+</div>
+

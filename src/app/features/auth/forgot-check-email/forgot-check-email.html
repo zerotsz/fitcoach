@@ -1,0 +1,48 @@
+<div class="fp-page">
+  <div class="fp-bg" aria-hidden="true"></div>
+  <div class="fp-overlay" aria-hidden="true"></div>
+
+  <div class="fp-content">
+    <div class="fp-card">
+      <div class="icon-wrap mail">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M22 7l-10 7L2 7"/>
+        </svg>
+      </div>
+
+      <p class="card-label">ENLACE ENVIADO</p>
+      <h1 class="title">Revisa <span>tu correo</span></h1>
+      <p class="subtitle">
+        Enviamos un enlace a<br />
+        <strong>{{ email }}</strong>. Para restablecer<br />
+        tu contraseña.
+      </p>
+
+      @if (resent) {
+        <div class="success-msg">Correo reenviado correctamente</div>
+      }
+
+      <a
+        class="btn-submit"
+        [href]="'mailto:' + email"
+        target="_blank"
+        rel="noopener"
+      >
+        Volver al inbox
+      </a>
+
+      <div class="secondary-links">
+        <button type="button" class="link-btn" (click)="resend()" [disabled]="isResending">
+          @if (isResending) { Reenviando... } @else { Reenviar }
+        </button>
+        <span class="sep">·</span>
+        <a [routerLink]="loginLink" class="link-btn">Cerrar sesión</a>
+      </div>
+
+      <button type="button" class="btn-demo" (click)="goToReset()">
+        Continuar (demo)
+      </button>
+    </div>
+  </div>
+</div>

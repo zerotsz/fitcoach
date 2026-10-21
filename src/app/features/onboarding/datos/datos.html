@@ -1,0 +1,58 @@
+<div class="ob-page">
+  <a routerLink="/" class="logo"><span>FIT</span>COACH</a>
+
+  <div class="ob-layout">
+    <div class="ob-left">
+      <div class="progress-row">
+        <a class="back-btn" routerLink="/onboarding/objetivo" aria-label="Volver">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <div class="progress-track">
+          <span class="seg done"></span>
+          <span class="seg active"></span>
+          <span class="seg"></span>
+          <span class="seg"></span>
+        </div>
+      </div>
+      <p class="step-label">Paso 2 de 4</p>
+      <h1 class="title">Tu información básica</h1>
+      <p class="subtitle">Necesaria para calcular tus requerimientos calóricos diarios</p>
+    </div>
+
+    <div class="ob-right">
+      <form [formGroup]="form" (ngSubmit)="continue()" class="datos-form" novalidate>
+        <div class="field">
+          <label class="field-label">Edad</label>
+          <input type="number" formControlName="age" placeholder="Ej. 25" min="12" max="100" />
+        </div>
+        <div class="field">
+          <label class="field-label">Altura (cm)</label>
+          <input type="number" formControlName="height" placeholder="Ej. 175" min="100" max="250" />
+        </div>
+        <div class="field">
+          <label class="field-label">Peso actual (kg)</label>
+          <input type="number" formControlName="weight" placeholder="Ej. 70" min="30" max="300" />
+        </div>
+        <div class="field">
+          <label class="field-label">Sexo</label>
+          <div class="select-wrap">
+            <select formControlName="sex">
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-continue" [disabled]="form.invalid">
+          Continuar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

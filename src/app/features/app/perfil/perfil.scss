@@ -1,0 +1,199 @@
+/* ============================================
+   Perfil — con avatar real
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes avatarIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.page {
+  max-width: 900px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 1.25rem;
+}
+
+.card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.2rem 1.3rem;
+}
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.45s ease 0.08s both;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+  }
+}
+
+.avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 195, 0, 0.35);
+  flex-shrink: 0;
+  animation: avatarIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.since {
+  font-size: 0.82rem;
+  color: #777;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.45s ease 0.14s both;
+}
+
+.stat-box {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 195, 0, 0.2);
+  }
+}
+
+.s-label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 0.35rem;
+}
+
+.s-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffc300;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.45s ease 0.2s both;
+}
+
+.sec {
+  font-size: 0.7rem;
+  letter-spacing: 1.2px;
+  color: #666;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.9rem 0;
+  color: #ccc;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+
+  &:first-of-type {
+    border-top: none;
+  }
+
+  &:hover {
+    color: #fff;
+
+    .row-val {
+      color: #ffc300;
+    }
+  }
+}
+
+.row-val {
+  color: #888;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+
+.logout {
+  width: 100%;
+  margin-top: 1rem;
+  height: 46px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(231, 76, 60, 0.45);
+  background: transparent;
+  color: #e74c3c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+
+  &:hover {
+    background: rgba(231, 76, 60, 0.1);
+    transform: translateY(-1px);
+  }
+}
+
+.prefs {
+  animation: fadeInUp 0.45s ease 0.26s both;
+}
+
+@media (max-width: 700px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

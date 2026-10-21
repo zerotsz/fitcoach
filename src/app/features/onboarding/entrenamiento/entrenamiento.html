@@ -1,0 +1,62 @@
+<div class="ob-page">
+  <a routerLink="/" class="logo"><span>FIT</span>COACH</a>
+
+  <div class="ob-layout">
+    <div class="ob-left">
+      <div class="progress-row">
+        <a class="back-btn" routerLink="/onboarding/datos" aria-label="Volver">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+        </a>
+        <div class="progress-track">
+          <span class="seg done"></span>
+          <span class="seg done"></span>
+          <span class="seg active"></span>
+          <span class="seg"></span>
+        </div>
+      </div>
+      <p class="step-label">Paso 3 de 4</p>
+      <h1 class="title">¿Cuántas veces entrenas?</h1>
+    </div>
+
+    <div class="ob-right">
+      <div class="freq-grid">
+        @for (f of frequencies; track f.id) {
+          <button
+            type="button"
+            class="freq-card"
+            [class.selected]="selectedFreq === f.id"
+            (click)="selectFreq(f.id)"
+          >
+            <span class="freq-title">{{ f.title }}</span>
+            <span class="freq-sub">{{ f.subtitle }}</span>
+          </button>
+        }
+      </div>
+
+      <p class="chips-label">Tipo de entrenamiento preferido</p>
+      <div class="chips">
+        @for (t of types; track t) {
+          <button
+            type="button"
+            class="chip"
+            [class.on]="isTypeOn(t)"
+            (click)="toggleType(t)"
+          >
+            {{ t }}
+          </button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="btn-continue"
+        [disabled]="!canContinue"
+        (click)="continue()"
+      >
+        Continuar
+      </button>
+    </div>
+  </div>
+</div>

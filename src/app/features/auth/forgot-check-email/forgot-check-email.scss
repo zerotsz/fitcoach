@@ -1,0 +1,303 @@
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes subtleZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+.fp-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  overflow: hidden;
+  color: #fff;
+  animation: fadeIn 0.4s ease both;
+}
+
+.fp-bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/forgot-bg (2).png') center / cover no-repeat;
+  animation: subtleZoom 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.fp-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 6, 0.72);
+}
+
+.fp-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.fp-card {
+  width: 100%;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 2.15rem 1.85rem 1.85rem;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.icon-wrap {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.15rem;
+  border-radius: 14px;
+  background: rgba(255, 195, 0, 0.12);
+  border: 1px solid rgba(255, 195, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffc300;
+  animation: scaleIn 0.5s ease 0.3s both;
+
+  &.success {
+    background: rgba(46, 204, 113, 0.12);
+    border-color: rgba(46, 204, 113, 0.35);
+    color: #6ee7a0;
+    border-radius: 50%;
+  }
+}
+
+.card-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  color: #ffc300;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  animation: fadeInUp 0.45s ease 0.35s both;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+  margin-bottom: 0.7rem;
+  animation: fadeInUp 0.5s ease 0.42s both;
+
+  span { color: #ffc300; }
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: #8a8a8a;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.45s ease 0.5s both;
+
+  strong {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.success-msg {
+  background: rgba(46, 204, 113, 0.12);
+  border: 1px solid rgba(46, 204, 113, 0.28);
+  color: #6ee7a0;
+  font-size: 0.84rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.3s ease both;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  background: #ffc300;
+  color: #111;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  gap: 0.45rem;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.3s;
+  animation: fadeInUp 0.5s ease 0.58s both;
+
+  &:hover:not(:disabled) {
+    background: #e6b000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255, 195, 0, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(17, 17, 17, 0.25);
+  border-top-color: #111;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.secondary-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+  animation: fadeIn 0.4s ease 0.7s both;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  transition: color 0.2s;
+
+  &:hover:not(:disabled) { color: #ffc300; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.sep { color: #444; font-size: 0.75rem; }
+
+.btn-demo {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: rgba(255, 195, 0, 0.55);
+  font-size: 0.72rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.25rem;
+
+  &:hover { color: #ffc300; }
+}
+
+.fp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: left;
+  animation: fadeInUp 0.5s ease 0.55s both;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #a0a0a0;
+  margin-bottom: 0.35rem;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 0 1rem;
+  height: 46px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+
+  &:focus-within {
+    border-color: #ffc300;
+    box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.1);
+  }
+
+  &.invalid {
+    border-color: #e74c3c;
+  }
+}
+
+.input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.88rem;
+  height: 100%;
+  padding: 0;
+
+  &::placeholder { color: #5a5a5a; }
+}
+
+.toggle-pass {
+  background: none;
+  border: none;
+  color: #6a6a6a;
+  cursor: pointer;
+  padding: 0.15rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+
+  &:hover { color: #ffc300; }
+}
+
+.error {
+  display: block;
+  font-size: 0.7rem;
+  color: #e74c3c;
+  margin-top: 0.25rem;
+  padding-left: 0.85rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.15rem;
+  font-size: 0.82rem;
+  color: #8a8a8a;
+  text-decoration: none;
+  animation: fadeIn 0.4s ease 0.7s both;
+
+  &:hover { color: #ffc300; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .fp-bg { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .fp-card { padding: 1.75rem 1.35rem; }
+  .title { font-size: 1.3rem; }
+}

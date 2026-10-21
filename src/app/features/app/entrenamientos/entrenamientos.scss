@@ -1,0 +1,205 @@
+/* ============================================
+   Entrenamientos — lista con fotos reales
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fabPop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.page {
+  max-width: 1100px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.fab {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #ffc300;
+  color: #111;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  animation: fabPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  transition: transform 0.2s, box-shadow 0.25s;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 22px rgba(255, 195, 0, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+  animation: fadeInUp 0.45s ease 0.08s both;
+}
+
+.filter-chip {
+  height: 34px;
+  padding: 0 1.05rem;
+  border-radius: 50px;
+  border: none;
+  background: #1a1a1a;
+  color: #aaa;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s, transform 0.15s;
+
+  &:hover:not(.on) {
+    color: #fff;
+    background: #222;
+  }
+
+  &.on {
+    background: #ffc300;
+    color: #111;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+}
+
+.w-card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0;
+  animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.25s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 195, 0, 0.2);
+
+    .w-img {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.w-img-wrap {
+  height: 170px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.w-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.w-body {
+  padding: 1rem 1.15rem 1.2rem;
+}
+
+.w-body h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.2px;
+}
+
+.w-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.76rem;
+  color: #7a7a7a;
+}
+
+.dur {
+  color: #9a9a9a;
+}
+
+.lvl {
+  color: #aaa;
+}
+
+.ex {
+  margin-left: auto;
+  color: #ffc300;
+  font-weight: 700;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  padding: 2.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .w-img-wrap {
+    height: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .w-card:hover .w-img {
+    transform: none;
+  }
+}

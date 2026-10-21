@@ -1,0 +1,63 @@
+<div class="page">
+  <h1 class="title">Nutrición</h1>
+
+  <div class="days">
+    @for (d of days; track d.n; let i = $index) {
+      <button
+        type="button"
+        class="day"
+        [class.on]="activeDay === d.n"
+        [style.animation-delay]="(0.05 + i * 0.05) + 's'"
+        (click)="selectDay(d.n)"
+      >
+        <span class="day-l">{{ d.label }}</span>
+        <span class="day-n">{{ d.n }}</span>
+      </button>
+    }
+  </div>
+
+  <section class="card cal-card">
+    <div class="cal-head">
+      <div>
+        <p class="cal-label">Calorías consumidas</p>
+        <p class="cal-num">
+          {{ kcal | number }} / {{ kcalGoal | number }}
+          <span class="cal-unit">kcal</span>
+        </p>
+      </div>
+      <p class="cal-rest">Restan {{ remaining }}</p>
+    </div>
+
+    <div class="cal-bar" aria-hidden="true">
+      <div class="seg protein" [style.flex]="proteinFlex"></div>
+      <div class="seg carbs" [style.flex]="carbsFlex"></div>
+      <div class="seg fat" [style.flex]="fatFlex"></div>
+      <div class="seg empty" [style.flex]="remaining / 10 || 1"></div>
+    </div>
+
+    <div class="macros">
+      <span class="m protein"><i></i> Proteína: {{ protein }}g</span>
+      <span class="m carbs"><i></i> Carbs: {{ carbs }}g</span>
+      <span class="m fat"><i></i> Grasa: {{ fat }}g</span>
+    </div>
+  </section>
+
+  <div class="meals-grid">
+    @for (meal of meals; track meal.title; let i = $index) {
+      <section class="card meal" [style.animation-delay]="(0.22 + i * 0.08) + 's'">
+        <div class="meal-head">
+          <h2>{{ meal.title }}</h2>
+          <button type="button" class="add">+ Agregar</button>
+        </div>
+        <ul class="items">
+          @for (it of meal.items; track it.name) {
+            <li>
+              <span class="item-name">{{ it.name }}</span>
+              <span class="ik">{{ it.kcal }} kcal</span>
+            </li>
+          }
+        </ul>
+      </section>
+    }
+  </div>
+</div>

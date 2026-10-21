@@ -1,0 +1,43 @@
+<div class="page">
+  <header class="top">
+    <h1 class="title">Entrenamientos</h1>
+    <button type="button" class="fab" aria-label="Agregar entrenamiento">+</button>
+  </header>
+
+  <div class="filters">
+    @for (f of filters; track f) {
+      <button
+        type="button"
+        class="filter-chip"
+        [class.on]="activeFilter === f"
+        (click)="setFilter(f)"
+      >
+        {{ f }}
+      </button>
+    }
+  </div>
+
+  <div class="grid">
+    @for (w of filtered; track w.id; let i = $index) {
+      <a
+        [routerLink]="['/app/entrenamientos', w.id]"
+        class="w-card"
+        [style.animation-delay]="(i * 0.07) + 's'"
+      >
+        <div class="w-img-wrap">
+          <img [src]="w.image" [alt]="w.title" class="w-img" loading="lazy" />
+        </div>
+        <div class="w-body">
+          <h3>{{ w.title }}</h3>
+          <div class="w-meta">
+            <span class="dur">● {{ w.duration }}</span>
+            <span class="lvl">⚡ {{ w.level }}</span>
+            <span class="ex">{{ w.exercises }} ejercicios</span>
+          </div>
+        </div>
+      </a>
+    } @empty {
+      <p class="empty">No hay entrenamientos en esta categoría.</p>
+    }
+  </div>
+</div>

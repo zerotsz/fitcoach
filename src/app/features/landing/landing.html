@@ -1,0 +1,561 @@
+<app-header />
+
+<main>
+  <!-- 1. HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <!-- Izquierda -->
+      <div class="hero-left">
+        <p class="badge">FITCOACH · COACHING PERSONALIZADO</p>
+
+        <h1>
+          ENTRENA. COME<br />
+          <span>MEJOR. AVANZA.</span>
+        </h1>
+
+        <p class="subtitle">
+          ENTRENAMIENTO, NUTRICIÓN Y SEGUIMIENTO<br />
+          PERSONALIZADO EN UNA SOLA PLATAFORMA PARA<br />
+          LOGRAR RESULTADOS QUE SÍ SE MANTIENEN.
+        </p>
+
+        <div class="hero-actions">
+          <a routerLink="/register" class="btn-primary">COMENZAR AHORA →</a>
+          <a href="#resultados-reales" class="btn-secondary">VER RESULTADOS</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>+{{ transformedCount() }}</strong>
+            <span>PERSONAS TRANSFORMADAS</span>
+          </div>
+          <div class="stat">
+            <strong>{{ adherenceRate() }}%</strong>
+            <span>TASA DE ADHERENCIA</span>
+          </div>
+          <div class="stat">
+            <strong>{{ weeksCount() }} SEMANAS</strong>
+            <span>PROGRAMA PROMEDIO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha: card de progreso -->
+      <div class="hero-right">
+        <div class="progress-card">
+          <p class="card-label">TU PROGRESO DE HOY</p>
+
+          <div class="kcal">
+            <span class="kcal-value">1,420 / 2,000 KCAL</span>
+            <span class="kcal-sub">BALANCE DIARIO</span>
+          </div>
+
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="progressWidth()"></div>
+          </div>
+          <p class="progress-text">{{ progressWidth() }}% DE TU OBJETIVO DIARIO</p>
+
+          <p class="habits-title">HÁBITOS DE HOY</p>
+          <div class="habits">
+            <div class="habit">
+              <span class="habit-label">COMIDAS</span>
+              <strong>3/4</strong>
+            </div>
+            <div class="habit">
+              <span class="habit-label">AGUA</span>
+              <strong>1.8 L</strong>
+            </div>
+            <div class="habit">
+              <span class="habit-label">ACTIVIDAD</span>
+              <strong>48 MIN</strong>
+            </div>
+          </div>
+
+          <div class="streak">
+            <span class="streak-label">RACHA ACTUAL</span>
+            <div class="streak-row">
+              <strong>12 DÍAS</strong>
+              <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SERVICIOS / SISTEMA COMPLETO -->
+  <section id="servicios" class="sistema">
+    <div class="container">
+      <p class="sistema-label anim-reveal anim-delay-1">TODO EN UN SOLO LUGAR</p>
+      <h2 class="anim-reveal anim-delay-2">
+        UN SISTEMA COMPLETO PARA <span>AVANZAR.</span>
+      </h2>
+      <p class="sistema-subtitle anim-reveal anim-delay-3">
+        FITCOACH CONECTA TU NUTRICIÓN, ENTRENAMIENTO Y<br />
+        SEGUIMIENTO CON TU COACH EN UNA EXPERIENCIA SIMPLE Y<br />
+        PERSONALIZADA.
+      </p>
+
+      <div class="sistema-cards">
+        <div class="sistema-card anim-reveal anim-delay-1">
+          <div class="sistema-num">1</div>
+          <h3>NUTRICIÓN INTELIGENTE</h3>
+          <p>
+            REGISTRA COMIDAS, CALORÍAS Y<br />
+            MACROS SIN COMPLICACIONES.
+          </p>
+          <a href="#planes" class="explorar">EXPLORAR →</a>
+          <span class="sistema-bg">01</span>
+        </div>
+
+        <div class="sistema-card anim-reveal anim-delay-2">
+          <div class="sistema-num">2</div>
+          <h3>ENTRENAMIENTO GUIADO</h3>
+          <p>
+            RECIBE RUTINAS PERSONALIZADAS<br />
+            Y REGISTRA CADA AVANCE.
+          </p>
+          <a href="#planes" class="explorar">EXPLORAR →</a>
+          <span class="sistema-bg">02</span>
+        </div>
+
+        <div class="sistema-card anim-reveal anim-delay-3">
+          <div class="sistema-num">3</div>
+          <h3>SEGUIMIENTO REAL</h3>
+          <p>
+            TU COACH REVISA TU PROGRESO Y TE<br />
+            ACOMPAÑA CUANDO LO NECESITAS.
+          </p>
+          <a href="#planes" class="explorar">EXPLORAR →</a>
+          <span class="sistema-bg">03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CÓMO FUNCIONA -->
+  <section id="metodo" class="como-funciona">
+    <div class="container">
+      <p class="cf-label anim-reveal anim-delay-1">CÓMO FUNCIONA</p>
+      <h2 class="anim-reveal anim-delay-2">
+        EMPIEZA HOY. <span>AVANZA</span> CADA DÍA.
+      </h2>
+      <p class="cf-subtitle anim-reveal anim-delay-3">
+        UN PROCESO CLARO PARA RECIBIR ACOMPAÑAMIENTO PROFESIONAL Y MANTENERTE CONSTANTE.
+      </p>
+
+      <!-- Timeline -->
+      <div class="cf-timeline">
+        <div class="cf-step anim-reveal anim-delay-1">
+          <div class="cf-num">1</div>
+          <h3>CUÉNTANOS TU META</h3>
+          <p>Completa tu perfil y cuéntanos qué quieres lograr.</p>
+        </div>
+        <div class="cf-step anim-reveal anim-delay-2">
+          <div class="cf-num">2</div>
+          <h3>RECIBE TU PLAN</h3>
+          <p>Tu coach prepara tu plan de nutrición y entrenamiento.</p>
+        </div>
+        <div class="cf-step anim-reveal anim-delay-3">
+          <div class="cf-num">3</div>
+          <h3>REGISTRA Y AVANZA</h3>
+          <p>Registra tu día, recibe feedback y celebra tu progreso.</p>
+        </div>
+      </div>
+
+      <!-- Tarjetas de detalle -->
+      <div class="cf-cards">
+        <!-- Meta -->
+        <div class="cf-card anim-reveal anim-delay-1">
+          <div class="cf-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="2" r="1"/>
+            </svg>
+          </div>
+          <span class="cf-card-label">META PRINCIPAL</span>
+          <strong class="cf-card-value">Perder grasa corporal</strong>
+        </div>
+
+        <!-- Plan -->
+        <div class="cf-card anim-reveal anim-delay-2">
+          <div class="cf-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+          </div>
+          <span class="cf-card-label">PLAN SEMANAL</span>
+          <ul class="cf-checklist">
+            <li>Nutrición personalizada</li>
+            <li>Rutina de entrenamiento</li>
+            <li>Seguimiento del coach</li>
+          </ul>
+        </div>
+
+        <!-- Adherencia -->
+        <div class="cf-card cf-card-adherence anim-reveal anim-delay-3">
+          <div class="cf-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <span class="cf-card-label">ADHERENCIA SEMANAL</span>
+          <strong class="cf-card-percent">{{ weeklyAdherence() }}%</strong>
+          <span class="cf-card-note">¡Excelente progreso!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RESULTADOS REALES -->
+  <section id="resultados-reales" class="resultados-reales">
+    <div class="container rr-grid">
+      <!-- Izquierda -->
+      <div class="rr-left">
+        <p class="rr-label anim-reveal anim-delay-1">RESULTADOS REALES</p>
+        <h2 class="anim-reveal anim-delay-2">
+          RESULTADOS QUE SE VEN.<br />
+          HÁBITOS QUE <span>SE QUEDAN.</span>
+        </h2>
+        <p class="rr-text anim-reveal anim-delay-3">
+          FitCoach convierte tus pequeños avances diarios en
+          cambios sostenibles, medibles y acompañados por
+          profesionales.
+        </p>
+        <div class="anim-reveal anim-delay-4">
+          <a href="#coaches" class="btn-primary">CONOCE A LOS COACHES →</a>
+        </div>
+
+        <!-- Feedback Interactivo -->
+        <div
+          class="rr-feedback anim-reveal anim-delay-5"
+          [class.playing]="isPlayingAudio()"
+          (click)="toggleAudio()"
+          role="button"
+          tabindex="0"
+          title="Haz clic para escuchar o pausar el feedback"
+        >
+          <div class="rr-feedback-header">
+            <span class="rr-play">
+              @if (isPlayingAudio()) {
+                <span class="pause-icon">❚❚</span>
+              } @else {
+                <span class="play-icon">▶</span>
+              }
+            </span>
+            <div class="rr-waveform" [class.active-wave]="isPlayingAudio()">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span>
+            </div>
+            <span class="feedback-badge">{{ isPlayingAudio() ? 'REPRODUCIENDO' : 'VOZ DE TU COACH' }}</span>
+          </div>
+          <p class="rr-feedback-label">FEEDBACK DE TU COACH</p>
+          <p class="rr-feedback-quote">“Hoy vas muy bien. Mantén este ritmo.”</p>
+        </div>
+      </div>
+
+      <!-- Derecha: collage -->
+      <div class="rr-right">
+        <div class="rr-img rr-img-nutrition anim-reveal anim-delay-1">
+          <span class="rr-img-label">NUTRICIÓN</span>
+          <img src="images/nutricion.png" alt="Nutrición" />
+        </div>
+
+        <div class="rr-img rr-img-coaching anim-reveal anim-delay-2">
+          <span class="rr-img-label">ACOMPAÑAMIENTO Y COACHING</span>
+          <img src="images/coaching.png" alt="Acompañamiento y coaching" />
+        </div>
+
+        <div class="rr-img rr-img-training anim-reveal anim-delay-3">
+          <span class="rr-img-label">ENTRENAMIENTO</span>
+          <img src="images/entrenamiento.png" alt="Entrenamiento" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 5. COACHES -->
+  <section id="coaches" class="coaches">
+    <div class="container coaches-grid">
+      <div class="coaches-left">
+        <p class="coaches-label anim-reveal anim-delay-1">COACHES VERIFICADOS</p>
+        <h2 class="anim-reveal anim-delay-2">
+          TU PROGRESO<br />
+          TAMBIÉN TIENE<br />
+          <span>EQUIPO.</span>
+        </h2>
+        <p class="coaches-text anim-reveal anim-delay-3">
+          CONECTA CON PROFESIONALES QUE<br />
+          ENTIENDEN TUS OBJETIVOS Y TE ACOMPAÑAN<br />
+          CON PLANES CLAROS, FEEDBACK ÚTIL Y<br />
+          SEGUIMIENTO CONSTANTE.
+        </p>
+
+        <div class="left-tags anim-reveal anim-delay-4">
+          <span>NUTRICIÓN DEPORTIVA</span>
+          <span>ENTRENAMIENTO FUNCIONAL</span>
+          <span>HÁBITOS SOSTENIBLES</span>
+        </div>
+
+        <div class="anim-reveal anim-delay-5">
+          <a routerLink="/register" class="btn-primary">ENCUENTRA TU COACH →</a>
+        </div>
+      </div>
+
+      <div class="coaches-right">
+        <div class="coach-main anim-reveal anim-delay-2">
+          <div class="coach-name-pill">
+            <strong>ANDREA MORALES</strong>
+            <span>NUTRICIÓN DEPORTIVA · HÁBITOS</span>
+          </div>
+          <div class="coach-photo-wrapper">
+            <img src="images/coach-andrea.png" alt="Andrea Morales" />
+          </div>
+        </div>
+
+        <div class="coach-side anim-reveal anim-delay-3">
+          <img src="images/coach-consulta.png" alt="Consulta" />
+          <img src="images/coach-banca.png" alt="Press banca" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PLANES -->
+  <section id="planes" class="planes">
+    <div class="container">
+      <p class="planes-label anim-reveal anim-delay-1">ELIGE TU FORMA DE AVANZAR</p>
+      <h2 class="anim-reveal anim-delay-2">UN PLAN QUE SE ADAPTA A TI.</h2>
+      <p class="planes-subtitle anim-reveal anim-delay-3">
+        COMBINA NUTRICIÓN, ENTRENAMIENTO Y ACOMPAÑAMIENTO SEGÚN<br />
+        TU META Y EL NIVEL DE SEGUIMIENTO QUE NECESITAS.
+      </p>
+
+      <div class="plans-grid">
+        <!-- Plan 1 -->
+        <div class="plan-card anim-reveal anim-delay-1">
+          <h3>MENSUAL ESENCIAL</h3>
+          <p class="plan-desc">PERFECTO PARA COMENZAR CON GUÍA PROFESIONAL.</p>
+          <p class="price">S/ 125<span> /MES</span></p>
+          <ul>
+            <li>PLAN DE NUTRICIÓN FLEXIBLE</li>
+            <li>RUTINA INICIAL PERSONALIZADA</li>
+            <li>CHECK-IN SEMANAL</li>
+            <li>SOPORTE DESDE LA APP</li>
+          </ul>
+          <a routerLink="/register" class="btn-plan">ELEGIR PLAN</a>
+        </div>
+
+        <!-- Plan 2 - destacado -->
+        <div class="plan-card featured anim-reveal anim-delay-2">
+          <div class="badge-plan">MÁS ELEGIDO</div>
+          <h3>FITCOACH INTEGRAL</h3>
+          <p class="plan-desc">EL PLAN COMPLETO PARA TRANSFORMAR HÁBITOS Y RENDIMIENTO.</p>
+          <p class="price">S/ 250<span> /MES</span></p>
+          <ul>
+            <li>NUTRICIÓN PERSONALIZADA</li>
+            <li>ENTRENAMIENTO ADAPTADO</li>
+            <li>FEEDBACK DIRECTO DEL COACH</li>
+            <li>SEGUIMIENTO DE HÁBITOS Y PROGRESO</li>
+            <li>ACCESO A LA PLATAFORMA FITCOACH</li>
+          </ul>
+          <a routerLink="/register" class="btn-plan primary">ELEGIR PLAN</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="plan-card anim-reveal anim-delay-3">
+          <h3>PLAN TRIMESTRAL</h3>
+          <p class="plan-desc">COMPROMÉTETE CON TU CAMBIO Y AVANZA CON MÁS CONSTANCIA.</p>
+          <p class="price">S/ 350<span> /3MESES</span></p>
+          <ul>
+            <li>INCLUYE TODO EL PLAN INTEGRAL</li>
+            <li>PRIORIDAD EN REVISIÓN SEMANAL</li>
+            <li>BENEFICIO POR COMPROMISO TRIMESTRAL</li>
+            <li>REPORTE COMPLETO DE PROGRESO</li>
+          </ul>
+          <a routerLink="/register" class="btn-plan">ELEGIR PLAN</a>
+        </div>
+      </div>
+
+      <p class="plans-note anim-reveal anim-delay-4">
+        PLANES FLEXIBLES · CANCELA O CAMBIA DE PLAN CUANDO LO NECESITES.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. COMUNIDAD -->
+  <section id="comunidad" class="comunidad">
+    <div class="container comunidad-grid">
+      <!-- Izquierda -->
+      <div class="comunidad-left">
+        <p class="comunidad-label anim-reveal anim-delay-1">COMUNIDAD FITCOACH</p>
+        <h2 class="anim-reveal anim-delay-2">
+          NO ES SOLO UN CAMBIO FÍSICO.<br />
+          ES UNA FORMA DE <span>VIVIR MEJOR.</span>
+        </h2>
+
+        <div class="testimonio-main anim-reveal anim-delay-3">
+          <p class="testimonio-quote">
+            “POR FIN TENGO UN PLAN QUE ENCAJA
+            CON MI VIDA. DEJÉ DE IMPROVISAR Y
+            EMPECÉ A DISFRUTAR MI PROCESO.”
+          </p>
+          <div class="testimonio-author">
+            <img src="images/sofia-avatar.png" alt="Sofía Ruiz" class="author-avatar" />
+            <div>
+              <strong>SOFÍA RUIZ</strong>
+              <span>RECOMPOSICIÓN CORPORAL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonios-mini anim-reveal anim-delay-4">
+          <div class="mini-card">
+            <p>“MI COACH ME AYUDÓ A MANTENERME CONSTANTE.”</p>
+            <div class="mini-stars">★★★★★</div>
+            <span>— CLIENTE FITCOACH</span>
+          </div>
+          <div class="mini-card">
+            <p>“REGISTRAR MIS AVANCES CAMBIÓ MI DISCIPLINA.”</p>
+            <div class="mini-stars">★★★★★</div>
+            <span>— CLIENTE FITCOACH</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha -->
+      <div class="comunidad-right anim-reveal anim-delay-3">
+        <div class="historia-badge">HISTORIA FITCOACH</div>
+        <img
+          src="images/comunidad-sofia.png"
+          alt="Sofía Ruiz - Historia FitCoach"
+          class="comunidad-photo"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA FINAL -->
+  <section class="cta-final">
+    <img src="images/cta-fondo.png" alt="" class="cta-bg-img" />
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+      <h2 class="anim-reveal anim-delay-1">
+        TU MEJOR VERSIÓN <span>EMPIEZA HOY.</span>
+      </h2>
+      <p class="cta-text anim-reveal anim-delay-2">
+        NO NECESITAS HACERLO SOLO. EMPIEZA CON UN PLAN CLARO, UN<br />
+        COACH QUE TE ACOMPAÑA Y UNA PLATAFORMA QUE REGISTRA<br />
+        CADA AVANCE.
+      </p>
+      <div class="cta-actions anim-reveal anim-delay-3">
+        <a routerLink="/register" class="btn-primary btn-cta-primary">QUIERO EMPEZAR →</a>
+        <a href="#coaches" class="btn-cta-secondary">HABLAR CON UN COACH</a>
+      </div>
+      <div class="cta-checks anim-reveal anim-delay-4">
+        <span>✓ PLANES PERSONALIZADOS</span>
+        <span>✓ COACHES VERIFICADOS</span>
+        <span>✓ SEGUIMIENTO DIARIO</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand anim-reveal anim-delay-1">
+        <a routerLink="/" class="footer-logo">
+          <span>FIT</span>COACH
+        </a>
+        <p>COACHING, NUTRICIÓN Y SEGUIMIENTO PERSONALIZADO PARA AVANZAR CON CLARIDAD.</p>
+        <div class="footer-status">
+          <span class="status-dot"></span>
+          <span>PLATAFORMA ACTIVA 24/7</span>
+        </div>
+      </div>
+
+      <!-- Plataforma -->
+      <div class="footer-col anim-reveal anim-delay-2">
+        <h4>PLATAFORMA</h4>
+        <a href="#">INICIO</a>
+        <a href="#planes">PLANES</a>
+        <a href="#coaches">COACHES</a>
+        <a href="#resultados-reales">RESULTADOS</a>
+      </div>
+
+      <!-- Ayuda -->
+      <div class="footer-col anim-reveal anim-delay-3">
+        <h4>AYUDA</h4>
+        <a href="#">PREGUNTAS FRECUENTES</a>
+        <a href="#">CONTACTO</a>
+        <a href="#">SOPORTE TÉCNICO</a>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col anim-reveal anim-delay-4">
+        <h4>LEGAL</h4>
+        <a href="#">PRIVACIDAD</a>
+        <a href="#">TÉRMINOS Y CONDICIONES</a>
+        <a href="#">COOKIES</a>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-social anim-reveal anim-delay-5">
+        <h4>CONÉCTATE</h4>
+        <div class="social-buttons">
+          <a href="#" class="social-btn instagram" aria-label="Instagram" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" class="social-btn facebook" aria-label="Facebook" title="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-btn whatsapp" aria-label="WhatsApp" title="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom anim-reveal anim-delay-3">
+      <p>© 2026 FITCOACH · CODAMI. TODOS LOS DERECHOS RESERVADOS.</p>
+      <div class="footer-bottom-badges">
+        <span class="ssl-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          SEGURIDAD SSL
+        </span>
+        <span class="region-badge">🇵🇪 PERÚ</span>
+      </div>
+    </div>
+  </div>
+</footer>

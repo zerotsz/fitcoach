@@ -1,0 +1,296 @@
+/* ============================================
+   Nutrición — animaciones
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes dayPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page {
+  max-width: 1100px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 1.25rem;
+}
+
+/* ---- Days ---- */
+.days {
+  display: flex;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #141414;
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  cursor: pointer;
+  opacity: 0;
+  animation: dayPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.2s;
+
+  &:hover:not(.on) {
+    border-color: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  &.on {
+    background: #ffc300;
+    border-color: #ffc300;
+    color: #111;
+    box-shadow: 0 6px 18px rgba(255, 195, 0, 0.25);
+  }
+}
+
+.day-l {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.day-n {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+/* ---- Cards ---- */
+.card {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.2rem 1.3rem;
+}
+
+.cal-card {
+  margin-bottom: 1.15rem;
+  animation: fadeInUp 0.5s ease 0.15s both;
+}
+
+.cal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.95rem;
+  gap: 1rem;
+}
+
+.cal-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.3rem;
+}
+
+.cal-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.cal-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #aaa;
+}
+
+.cal-rest {
+  font-size: 0.88rem;
+  color: #ffc300;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Macro bar */
+.cal-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.9rem;
+  gap: 2px;
+  transform-origin: left center;
+  animation: barGrow 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.seg {
+  border-radius: 4px;
+  min-width: 4px;
+
+  &.protein {
+    background: #ffc300;
+  }
+  &.carbs {
+    background: #6ee7a0;
+  }
+  &.fat {
+    background: #5b9fff;
+  }
+  &.empty {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.macros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.m i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.m.protein i {
+  background: #ffc300;
+}
+.m.carbs i {
+  background: #6ee7a0;
+}
+.m.fat i {
+  background: #5b9fff;
+}
+
+/* ---- Meals ---- */
+.meals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.meal {
+  opacity: 0;
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 0.22s, border-color 0.22s, box-shadow 0.25s;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 195, 0, 0.15);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.meal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+
+  h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+}
+
+.add {
+  background: none;
+  border: none;
+  color: #ffc300;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0.35rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: rgba(255, 195, 0, 0.12);
+  }
+}
+
+.items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: #b0b0b0;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+}
+
+.item-name {
+  line-height: 1.35;
+}
+
+.ik {
+  color: #777;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .meals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .day {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

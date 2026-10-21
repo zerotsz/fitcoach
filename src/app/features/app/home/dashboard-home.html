@@ -1,0 +1,106 @@
+<div class="page">
+  <header class="top">
+    <div>
+      <p class="breadcrumb">Inicio</p>
+      <h1 class="hello">Hola, Juan <span class="wave">👋</span></h1>
+      <p class="sub">¿Listo para superar tu entrenamiento de hoy?</p>
+    </div>
+    <a routerLink="/app/perfil" class="avatar-link" title="Perfil">
+      <img src="/images/user-avatar.png" alt="Juan" class="avatar-img" />
+    </a>
+  </header>
+
+  <!-- Progreso de hoy -->
+  <section class="card progress-card">
+    <h2 class="card-title">Progreso de hoy</h2>
+    <div class="progress-grid">
+      <div class="ring-block">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="54"/>
+          <circle
+            class="ring-fg"
+            cx="60" cy="60" r="54"
+            [attr.stroke-dasharray]="339"
+            [attr.stroke-dashoffset]="ringOffset"
+          />
+        </svg>
+        <div class="ring-center">
+          <span class="ring-num">{{ kcal | number }}</span>
+          <span class="ring-goal">/{{ kcalGoal | number }} kcal</span>
+        </div>
+      </div>
+
+      <div class="bars">
+        <div class="bar-row">
+          <div class="bar-head">
+            <span class="bar-name">Agua</span>
+            <span class="bar-val">{{ water }}L / {{ waterGoal }}L</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="waterPct"></div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-head">
+            <span class="bar-name">Pasos</span>
+            <span class="bar-val">{{ steps | number }} / {{ stepsGoal | number }}</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="stepsPct"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick actions -->
+  <div class="quick-actions">
+    <button type="button" class="chip-btn">+ Comida</button>
+    <button type="button" class="chip-btn">+ Peso</button>
+    <button type="button" class="chip-btn">+ Actividad</button>
+  </div>
+
+  <!-- Bottom row -->
+  <div class="bottom-grid">
+    <section class="card workout-section">
+      <div class="card-head">
+        <h2 class="card-title">Entrenamiento de hoy</h2>
+        <a routerLink="/app/entrenamientos" class="link-all">Ver todos</a>
+      </div>
+      <a routerLink="/app/entrenamientos/1" class="workout-card">
+        <img
+          src="/images/workout-today.png"
+          alt="Fuerza - Tren superior"
+          class="workout-img"
+        />
+        <div class="workout-info">
+          <h3>Fuerza - Tren superior</h3>
+          <p class="meta">
+            <span class="meta-item">● 45 min</span>
+            <span class="level">⚡ Intermedio</span>
+          </p>
+        </div>
+      </a>
+    </section>
+
+    <section class="card coach-section">
+      <h2 class="card-title">Comentarios del coach</h2>
+      <div class="coach-box">
+        <div class="coach-head">
+          <img
+            src="/images/coach-avatar.png"
+            alt="Coach Carlos"
+            class="coach-avatar"
+          />
+          <div>
+            <p class="coach-name">Coach Carlos</p>
+            <p class="coach-role">ENTRENADOR PERSONAL IA</p>
+          </div>
+        </div>
+        <p class="coach-msg">
+          “Excelente progreso con tus pasos de ayer, Juan. Para la sesión de fuerza de hoy, enfócate en mantener la técnica controlada durante la última serie de press de banca.”
+        </p>
+      </div>
+    </section>
+  </div>
+</div>

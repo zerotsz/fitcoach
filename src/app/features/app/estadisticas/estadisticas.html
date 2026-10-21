@@ -1,0 +1,96 @@
+<div class="page">
+  <header class="top">
+    <h1 class="title">Estadísticas</h1>
+    <div class="periods">
+      @for (p of periods; track p) {
+        <button
+          type="button"
+          class="period"
+          [class.on]="activePeriod === p"
+          (click)="setPeriod(p)"
+        >
+          {{ p }}
+        </button>
+      }
+    </div>
+  </header>
+
+  <section class="card chart-card">
+    <div class="chart-head">
+      <h2>Progreso de peso</h2>
+      <p class="weight-val">
+        {{ weight }} kg
+        <span class="delta">({{ weightChange }} kg)</span>
+      </p>
+    </div>
+    <div class="chart-wrap">
+      <svg viewBox="0 0 100 80" preserveAspectRatio="none" class="chart">
+        <!-- grid lines -->
+        <line x1="0" y1="20" x2="100" y2="20" class="grid-line" />
+        <line x1="0" y1="40" x2="100" y2="40" class="grid-line" />
+        <line x1="0" y1="60" x2="100" y2="60" class="grid-line" />
+
+        <polyline
+          class="line"
+          [attr.points]="polyline"
+          fill="none"
+          stroke="#ffc300"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          vector-effect="non-scaling-stroke"
+        />
+        @for (p of points; track p.x) {
+          <circle
+            class="dot"
+            [attr.cx]="p.x"
+            [attr.cy]="p.y"
+            r="1.4"
+            fill="#ffc300"
+          />
+        }
+      </svg>
+      <div class="x-labels">
+        <span>Lun</span>
+        <span>Mar</span>
+        <span>Mié</span>
+        <span>Jue</span>
+        <span>Vie</span>
+        <span>Sáb</span>
+        <span>Dom</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="bottom-grid">
+    <section class="card measures-card">
+      <h2 class="sec-title">Medidas corporales</h2>
+      <div class="measures">
+        <div class="measure">
+          <p class="m-label">Grasa Corporal</p>
+          <p class="m-val">{{ bodyFat }} %</p>
+          <p class="m-delta down">−0.5% este mes</p>
+        </div>
+        <div class="measure">
+          <p class="m-label">Masa Muscular</p>
+          <p class="m-val">{{ muscle }} kg</p>
+          <p class="m-delta up">+0.3kg este mes</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card records-card">
+      <h2 class="sec-title">Récords Personales</h2>
+      <div class="records">
+        <div class="rec">
+          <span>Press de Banca Máximo</span>
+          <strong>95 kg</strong>
+        </div>
+        <div class="rec">
+          <span>Serie de Sentadillas Máxima</span>
+          <strong>120 kg x 8</strong>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

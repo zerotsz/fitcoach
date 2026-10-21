@@ -1,0 +1,87 @@
+<div class="confirm-page">
+  <!-- Capas de fondo creativas -->
+  <div class="bg-base" aria-hidden="true"></div>
+  <div class="bg-angle bg-angle-1" aria-hidden="true"></div>
+  <div class="bg-angle bg-angle-2" aria-hidden="true"></div>
+  <div class="bg-angle bg-angle-3" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-main" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-soft" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="dots dots-tr" aria-hidden="true"></div>
+  <div class="dots dots-bl" aria-hidden="true"></div>
+  <div class="orbit orbit-1" aria-hidden="true"></div>
+  <div class="orbit orbit-2" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="confirm-header">
+    <a routerLink="/" class="logo"><span>FIT</span>COACH</a>
+    <div class="header-line" aria-hidden="true">
+      <span class="line"></span>
+      <span class="arrow"></span>
+    </div>
+  </header>
+
+  <div class="confirm-body">
+    <!-- Texto -->
+    <div class="confirm-text">
+      <p class="label">CUENTA CREADA</p>
+
+      <h1 class="title">
+        Solo falta<br />
+        <span>confirmar tu correo</span>
+      </h1>
+
+      <p class="subtitle">
+        Enviamos un enlace de verificación a<br />
+        <strong>{{ email }}</strong>
+      </p>
+
+      <p class="hint">Revisa tu bandeja de entrada y spam.</p>
+
+      @if (resent) {
+        <div class="success-msg">Correo reenviado correctamente</div>
+      }
+
+      <div class="actions">
+        <a
+          class="btn-primary"
+          [href]="'mailto:' + email"
+          target="_blank"
+          rel="noopener"
+        >
+          Abrir mi correo
+        </a>
+
+        <div class="secondary-links">
+          <button
+            type="button"
+            class="link-btn"
+            (click)="resend()"
+            [disabled]="isResending"
+          >
+            @if (isResending) { Reenviando... } @else { Reenviar correo }
+          </button>
+          <span class="sep">|</span>
+          <a routerLink="/register" class="link-btn">Cambiar correo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icono -->
+    <div class="confirm-visual" aria-hidden="true">
+      <div class="ring ring-outer"></div>
+      <div class="ring ring-mid"></div>
+      <div class="ring ring-inner"></div>
+      <div class="arc arc-top"></div>
+      <div class="arc arc-bottom"></div>
+      <div class="icon-wrap">
+        <svg viewBox="0 0 80 80" fill="none" class="mail-svg">
+          <rect x="12" y="22" width="56" height="40" rx="4" stroke="#ffc300" stroke-width="2.5"/>
+          <path d="M12 30 L40 48 L68 30" stroke="#ffc300" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="58" cy="24" r="12" fill="#0a0a0a" stroke="#ffc300" stroke-width="2.5"/>
+          <path d="M52 24 L56 28 L64 18" stroke="#ffc300" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
